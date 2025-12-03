@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NLP - Emotion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 60px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        label {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 4px;
+            border: 1px solid #888;
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+        .result {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>NLP - Emotion Detection</h1>
+
+    <form method="post">
+        <label for="text_to_analyze">Please enter the text to be analyzed</label>
+        <textarea id="text_to_analyze" name="text_to_analyze" rows="3"
+                  placeholder="I think I am having fun">{{ input_text }}</textarea>
+        <br>
+        <button type="submit">Run Sentiment Analysis</button>
+    </form>
+
+    <div class="result">
+        <h2>Result of Emotion Detection</h2>
+
+        {% if result %}
+            <p>
+                For the given statement, the system response is:
+                {% for label, score in result.emotions.items() %}
+                    '{{ label }}': {{ "%.6f"|format(score) }}{% if not loop.last %}, {% endif %}
+                {% endfor %}.
+                The dominant emotion is <strong>{{ result.dominant }}</strong>.
+            </p>
+        {% else %}
+            <p>No text analyzed yet.</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
