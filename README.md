@@ -132,7 +132,7 @@ You may add an MIT License if deployment is required.
 
 ## 👤 Developer
 
-Name: Bela\
+Name: Nabila Alnovera\
 Technology: Python & Flask
 
 ------------------------------------------------------------------------
