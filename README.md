@@ -1,4 +1,4 @@
-# 🧠 Emotion Detection Web App (NLP Project)
+# 🧠 Emotion Detection Web App
 
 ------------------------------------------------------------------------
 
